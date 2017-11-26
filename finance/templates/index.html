@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <h1 class="bg-primary">Current Assets</h1>
+    <table class="table table-striped">
+
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for stock in stocks %}
+            <tr>
+                <td>{{ stock.symbol }}</td>
+                <td>{{ stock.name }}</td>
+                <td>{{ stock.shares }}</td>
+                <td>{{ stock.price }}</td>
+                <td>{{ stock.total }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+        <p>
+        <h4 class="bg-info">Cash Balance</h3>
+        <div>
+            ${{ current_cash }}
+        </div>
+        </p>
+        <p>
+        <h4 class="bg-success">Grant Total (Cash Balance + Stocks Value)</h3>
+        ${{ grand_total }}
+        </p>
+        <div>
+            <img src="https://s17.postimg.org/w375p5tm7/img.jpg" width="150" height="120">
+        </div>
+{% endblock %}
